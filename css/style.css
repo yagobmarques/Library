@@ -1,7 +1,6 @@
 body{
 	background-image: url("../img/bg1.jpg");
 	background-position: center; /* Center the image */
-  	background-repeat: no-repeat; /* Do not repeat the image */
   	background-size: cover; /* Resize the background image to cover the entire container */
   	height: 100vh;
 }
@@ -16,8 +15,6 @@ h3{
 }
 #cadastro{
 	position: absolute;
-	width: 50%;
-	height: 50%;
 	left:25%;
 	top:25%;
 	display: none;
