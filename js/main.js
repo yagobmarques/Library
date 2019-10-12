@@ -1,6 +1,6 @@
 var books = [];
-function addBook(){
-	book = {title: "Title",  author: "Author", pages: 0,status: "none"};
+function addBook() {
+	book = { title: "Title", author: "Author", pages: 0, status: "none" };
 	book.title = $("#title").val();
 	book.author = $("#author").val();
 	book.pages = $("#pages").val();
@@ -8,20 +8,41 @@ function addBook(){
 	books.push(book);
 	closeModal("#modalCadastro");
 }
-function closeModal(id){
+function closeModal(id) {
 	$(id).modal('hide');
 }
-function showBooks(){
+function showBooks() {
 	clearBooks();
-	for (i = 0; i<books.length; i++){
-		title = "<td>" +books[i].title + "</td>";
-		author = "<td>" +books[i].author + "</td>";
-		pages = "<td>" +books[i].pages + "</td>";
-		status = "<td>" +books[i].status + "</td>";
-		button = "<td>" + "<button type=\"button\" class=\"btn btn-dark\" onclick=\"remove()\" value=\""+books[i].title+"\"> Remove</button>"; 
-		$("#tablebody").append("<tr>"+title+author+pages+status+button+"</tr>");
+	for (let i = 0; i < books.length; i++) {
+		title = "<td>" + books[i].title + "</td>";
+		author = "<td>" + books[i].author + "</td>";
+		pages = "<td>" + books[i].pages + "</td>";
+		if (books[i].status == "unread"){
+			status = "<td>" + "<button type=\"button\" class=\"btn btn-dark\" onclick=\"read('"+books[i].title+"')\"> Read</button>";
+		}else{
+			status = "<td>" + "<button type=\"button\" class=\"btn btn-dark\" onclick=\"read('"+books[i].title+"')\" disabled> Had read</button>";
+		}
+		//status = "<td>" + books[i].status + "</td>";
+		button = "<td>" + "<button type=\"button\" class=\"btn btn-dark\" onclick=\"remove('"+books[i].title+"')\"> Remove</button>";
+		$("#tablebody").append("<tr>" + title + author + pages + status + button + "</tr>");
 	}
 }
-function clearBooks(){
+function clearBooks() {
 	$("#tablebody").empty();
+}
+function remove(title) {
+	for ( let i = 0; i < books.length; i++) {
+		if (books[i].title == title) {
+			books.splice(i,1);
+		}
+	}
+	showBooks();
+}
+function read(title){
+	for ( let i = 0; i<books.length;i++){
+		if (books[i].title == title){
+			books[i].status = "read";
+		}
+	}
+	showBooks();
 }

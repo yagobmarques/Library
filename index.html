@@ -21,7 +21,7 @@
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#modalCadastro">Add</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#modalBooks">View Titles</a>
+                <a class="nav-link" href="#" onclick="showBooks()" data-toggle="modal" data-target="#modalBooks">View Titles</a>
             </li>
         </ul>
     </nav>
@@ -35,15 +35,14 @@
                 <div class="col text-center" text-center">
                     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modalCadastro">
                         <h3>Add a Book</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                        <p>Enter the following book metadata: title, author, pages, and their status (read or unread) and press Add.</p>
                     </button>
                 </div>
-                <div class="col text-center" text-center"  data-toggle="modal" data-target="#modalBooks">
+                <div onclick="showBooks()" class="col text-center" text-center" data-toggle="modal"
+                    data-target="#modalBooks">
                     <button type="button" class="btn btn-dark">
                         <h3>View Titles</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+                        <p>View the catalog and remove or read them. If the book is already read, the button will disable</p>
                     </button>
                 </div>
             </div>
@@ -60,25 +59,29 @@
                     <form class="was-validated" id="addForm">
                         <div class="form-group">
                             <label for="uname">Title:</label>
-                            <input type="text" class="form-control" id="title" placeholder="Book Title" name="uname" required>
+                            <input type="text" class="form-control" id="title" placeholder="Book Title" name="uname"
+                                required>
                             <div class="valid-feedback">Valid.</div>
                             <div class="invalid-feedback">Please fill out this field.</div>
-                        </div> 
+                        </div>
                         <div class="form-group">
                             <label for="author">Author:</label>
-                            <input type="text" class="form-control" id="author" placeholder="Book Author" name="author" required>
+                            <input type="text" class="form-control" id="author" placeholder="Book Author" name="author"
+                                required>
                             <div class="valid-feedback">Valid.</div>
                             <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                         <div class="form-group">
                             <label for="pages">Pages:</label>
-                            <input type="text" class="form-control" id="pages" placeholder="Pages" name="pages" required>
+                            <input type="text" class="form-control" id="pages" placeholder="Pages" name="pages"
+                                required>
                             <div class="valid-feedback">Valid.</div>
                             <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                         <div class="form-group">
                             <label for="status">Status:</label>
-                            <select class="custom-select form-control" id="status" placeholder="Status" name="status" required>
+                            <select class="custom-select form-control" id="status" placeholder="Status" name="status"
+                                required>
                                 <option></option>
                                 <option value="read">Read</option>
                                 <option value="unread">Unread</option>
@@ -101,7 +104,6 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <button type="button" class="btn btn-dark" onclick="showBooks()">Generate</button>
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -113,7 +115,7 @@
                             </tr>
                         </thead>
                         <tbody id="tablebody">
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -121,4 +123,5 @@
         </div>
     </div>
 </body>
+
 </html>
