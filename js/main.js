@@ -20,7 +20,7 @@ function showBooks() {
 		if (books[i].status == "unread"){
 			status = "<td>" + "<button type=\"button\" class=\"btn btn-dark\" onclick=\"read('"+books[i].title+"')\"> Read</button>";
 		}else{
-			status = "<td>" + "<button type=\"button\" class=\"btn btn-dark\" onclick=\"read('"+books[i].title+"')\" disabled> Had read</button>";
+			status = "<td>" + "<button type=\"button\" class=\"btn btn-dark\" onclick=\"read('"+books[i].title+"')\" disabled> Already Read</button>";
 		}
 		//status = "<td>" + books[i].status + "</td>";
 		button = "<td>" + "<button type=\"button\" class=\"btn btn-dark\" onclick=\"remove('"+books[i].title+"')\"> Remove</button>";
