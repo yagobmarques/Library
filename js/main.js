@@ -46,3 +46,20 @@ function read(title){
 	}
 	showBooks();
 }
+function clearBooksFilter(){
+	$("#tablebody_filter").empty();
+}
+function filter(){
+	input = $("#dataFilter").val().toLowerCase();
+	clearBooksFilter();
+	for (let i = 0; i<books.length;i++){
+		string_geral = books[i].title + books[i].author + books[i].pages + books[i].status;
+		title = "<td>" + books[i].title + "</td>";
+		author = "<td>" + books[i].author + "</td>";
+		pages = "<td>" + books[i].pages + "</td>";
+		status = "<td>" + books[i].status + "</td>";
+		if (string_geral.toLowerCase().includes(input) || input == ""){
+			$("#tablebody_filter").append("<tr>" + title + author + pages + status + "</tr>");
+		}
+	}
+}
